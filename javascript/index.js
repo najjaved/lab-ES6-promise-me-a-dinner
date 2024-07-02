@@ -133,6 +133,7 @@ makeBroccoli();
 Promise.all returns a new promise on which then() callback function can be called to access resulting data */
 const makeBrusselsSprouts =() => {
 
+  /*
   const arrOfPromises = [ obtainInstruction('brusselsSprouts', 0), 
       obtainInstruction('brusselsSprouts', 1),
       obtainInstruction('brusselsSprouts', 2),
@@ -140,7 +141,12 @@ const makeBrusselsSprouts =() => {
       obtainInstruction('brusselsSprouts', 4),
       obtainInstruction('brusselsSprouts', 5),
       obtainInstruction('brusselsSprouts', 6),
-      obtainInstruction('brusselsSprouts', 7)]
+      obtainInstruction('brusselsSprouts', 7)] */
+	  
+  //refactoring
+  const arrOfPromises = brusselsSprouts.map((_, sproutsIndex) => 
+						obtainInstruction('brusselsSprouts', sproutsIndex)
+						);
 
   Promise.all(arrOfPromises)
   .then( arrOfSteps => {
